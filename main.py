@@ -151,11 +151,13 @@ def spell_checking_on_sents(model, vocab, device, normalizer, txt):
             new_out.append( (utils.de_space_special_chars(out[i][0]), utils.de_space_special_chars(out[i][1])))
     return new_out, splitters
 
-from django.conf import settings
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
 
 def totalOutput(address):
     normalizer = Normalizer(punctuation_spacing=False, remove_extra_spaces=False)
-    vocab_path = os.path.join(settings.BASE_DIR, 'Nevise', 'model', 'vocab.pkl')
+    vocab_path = os.path.join(BASE_DIR, 'model', 'vocab.pkl')
     model_checkpoint_path = os.path.join('model', 'model.pth.tar')
     model, vocab, device = load_pre_model(vocab_path=vocab_path, model_checkpoint_path=model_checkpoint_path)
     #test
