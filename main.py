@@ -158,7 +158,7 @@ BASE_DIR = Path(__file__).resolve().parent
 def totalOutput(address):
     normalizer = Normalizer(punctuation_spacing=False, remove_extra_spaces=False)
     vocab_path = os.path.join(BASE_DIR, 'model', 'vocab.pkl')
-    model_checkpoint_path = os.path.join('model', 'model.pth.tar')
+    model_checkpoint_path = os.path.join(BASE_DIR, 'model', 'model.pth.tar')
     model, vocab, device = load_pre_model(vocab_path=vocab_path, model_checkpoint_path=model_checkpoint_path)
     #test
     sample_input = address #'این یک مثالل صاده برالی ازرابی این سامانح اسصت'
